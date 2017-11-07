@@ -1,4 +1,4 @@
-这个文档包括以下版本的用flink实现图的bfs
+这个文档包括以下版本的用flink实现图的bfs<br>
 bfs需要数据是点，这个点所有的边，这个点现在所在的层级。
 
 1. 使用gelly vertex centeric实现的bfs <br>
