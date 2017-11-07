@@ -42,4 +42,4 @@ workset是通过filter算子过滤出来的，起点是0，起点level是1。（
 delta是通过 message和solutionset cogroup得出（line 91-112）尤其值得注意的是这里使用withForwardFieldSecond。让数据可以不经过解序列化进入下一阶段这一步非常提速。<br>
 iteration close（line 114）更新原始solution set<br>
 
-<a href="https://docs.google.com/spreadsheets/d/1xDOspfTyHqvdbwztA1B-tFgdCL-2_DqzVgbm1rR3s5U/edit?usp=sharing" title="Title">比较文件<\a>在这里
+<a href="https://docs.google.com/spreadsheets/d/1xDOspfTyHqvdbwztA1B-tFgdCL-2_DqzVgbm1rR3s5U/edit?usp=sharing" title="Title">比较文件</a>在这里
