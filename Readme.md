@@ -19,7 +19,7 @@ bfs需要的数据是点，这个点所有的边和这个点现在所在的层�
 DataSet<Tuple2<Integer, Integer>> edges<br>
 DataSet<Tuple2<Integer, Integer>> vertexWithLevel 存储点和这点所在level<br>
 *主要过程：<br>*
-过程遵循一般vertex centric算法的规则。从一个起点出发激活所有它能够到的点，再由这些点激活下一轮的点</br>
+过程遵循一般vertex centric算法的规则。从一个起点出发激活所有它能够到的点，再由这些点激活下一轮的点。</br>
 workset最初是（0,1）,起点为0，起点的level是1。(line 89)</br>
 在iteration中的操作是：workset中每个点u通过和边集cogroup去找这点所有的能够到达v。
 生成 (v, (level of u) + 1)这样的message集合。(line 93-113)<br>
