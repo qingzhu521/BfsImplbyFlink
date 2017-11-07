@@ -1,4 +1,4 @@
-这个文档包括以下版本的用flink实现图的bfs<br>
+这个文档包括以下用flink实现bfs的版本<br>
 bfs需要数据是点，这个点所有的边，这个点现在所在的层级。
 
 1. 使用gelly vertex centeric实现的bfs <br>
@@ -13,7 +13,7 @@ bfs需要数据是点，这个点所有的边，这个点现在所在的层级�
 我们总是需要规定以下几个数据集合
 点集合，每个点关联的属性，边集合，我们有以下几种存储方式。对数据进行整理
 
-3. 使用flink基本api模拟gelly实现(特点是点和边分开存储，边以边表的形式存储）的bfs<br>
+3. 使用flink基本api模拟gelly实现(**特点是点和边分开存储，边以边表的形式存储**）的bfs<br>
 代码文件-----T2EdgeSetCoGroup.java<br>
 DataSet<Tuple2<Integer, Integer>> edges<br>
 DataSet<Tuple2<Integer, Integer>> vertexWithLevel 存储点和这点所在level<br>
@@ -24,7 +24,7 @@ iteration close（line 141）去更新原始的solution set。<br>
 主要过程 两个cogroup。line 93 - 113 和line 115 - 139。 针对flink cogroup的开销见文档
 https://docs.google.com/document/d/1pNr7rLWDjmv2cZlkd1kjwbWZtQZoJAd9UgsmMp-b1R0/edit。 flink主要在序列化上花费太多时间。
 
-4. 使用flink基本api实现的bfs（特点是一个点和这个点所有的边存储在一起，点和属性另外存储）<br>
+4. 使用flink基本api实现的bfs（**特点是一个点和这个点所有的边存储在一起，点和属性另外存储**）<br>
 代码文件-----T2AdjSetBfs.java<br>
 DataSet<Tuple2<Integer, Integer[]>> verteices 这个点和这点所有的邻接点
 DataSet<Tuple2<Integer, Integer>> vertexWithLevel 存储点和这点所在level<br>
@@ -33,7 +33,7 @@ workset最初是（0,1）起点为0，起点的level是1。(line 53)<br>
 message集合和原始solution集合cogroup知道哪些数据需要更改生成delta集合（line 74-85）<br>
 iteration close（line 88）更新原始solution set
 
-5. 使用flink基本api实现的bfs（特点是一个点和这点所有的边以及额外的属性都放在一条数据中存储）<br>
+5. 使用flink基本api实现的bfs（**特点是一个点和这点所有的边以及额外的属性都放在一条数据中存储**）<br>
 代码文件-----Tuple3BfsCoGraph.java<br>
 数据存储
 DataSet<Tuple3<Integer, Integer[], Integer>> verteices 分别表示点，这点所有的边，这个点当前的属性<br>
