@@ -31,7 +31,7 @@ https://docs.google.com/document/d/1pNr7rLWDjmv2cZlkd1kjwbWZtQZoJAd9UgsmMp-b1R0/
 4. 使用flink基本api实现的bfs（**特点是一个点和这个点所有的边存储在一起，点和属性另外存储**）<br>
 代码文件-----T2AdjSetBfs.java<br>
 *数据存储：<br>*
-DataSet<Tuple2<Integer, Integer[]>> verteices 这个点和这点所有的邻接点
+DataSet<Tuple2<Integer, Integer[]>> verteices 这个点和这点所有的邻接点</br>
 DataSet<Tuple2<Integer, Integer>> vertexWithLevel 存储点和这点所在level<br>
 *主要过程：<br>*
 workset最初是（0,1）起点为0，起点的level是1。(line 53)<br>
@@ -50,5 +50,5 @@ workset是通过filter算子过滤出来的，起点是0，起点level是1。（
 delta是通过 message和solutionset cogroup得出（line 91-112）尤其值得注意的是这里使用withForwardFieldSecond。让数据可以不经过解序列化进入下一阶段这一步非常提速。<br>
 iteration close（line 114）更新原始solution set<br>
 
-<a href="https://docs.google.com/spreadsheets/d/1xDOspfTyHqvdbwztA1B-tFgdCL-2_DqzVgbm1rR3s5U/edit?usp=sharing">比较文件</a>在这里
-<a href="https://docs.google.com/document/d/1-0xxXj6HJ__TQgXgGU4vR3mi5bzOFJ5OP3VZE0aNUW8/edit?usp=sharing"> 执行图</a> 
+<a href="https://docs.google.com/spreadsheets/d/1xDOspfTyHqvdbwztA1B-tFgdCL-2_DqzVgbm1rR3s5U/edit?usp=sharing">比较文件</a>在这里</br>
+<a href="https://docs.google.com/document/d/1922-e8T1dqmLRBFXLglFPJJ24zO0OMj6V5SZz3WNgY8/edit?usp=sharing"> 执行图</a> 在这里</br>
