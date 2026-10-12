@@ -10,7 +10,6 @@ import org.apache.flink.graph.pregel.ComputeFunction;
 import org.apache.flink.graph.pregel.MessageCombiner;
 import org.apache.flink.graph.pregel.MessageIterator;
 import org.apache.flink.types.NullValue;
-import sun.management.counter.LongCounter;
 
 /**
  * Created by xing on 10/07/17.
